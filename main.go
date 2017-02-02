@@ -43,6 +43,11 @@ func main() {
 		return
 	}
 
+	fi, err := os.Stat(gpath.GlideFile)
+	if err != nil {
+		msg.Die(err.Error())
+	}
+
 	lock, err := cfg.ReadLockFile(filepath.Join(base, gpath.LockFile))
 	if err != nil {
 		msg.Die("Could not load lockfile.")
@@ -71,6 +76,9 @@ func main() {
 	if err != nil {
 		msg.Die("Could not marshal config.")
 	} else if newhash == hash {
+		if lock.Updated.Sub(fi.ModTime()) > 0 {
+			msg.Warn("Updated timestamp mismatch")
+		}
 		msg.Info("Everything is already pinned!")
 		os.Exit(0)
 	}
