@@ -1,0 +1,30 @@
+package: github.com/multiplay/glide-pin
+license: MIT
+import:
+- package: github.com/codegangsta/cli
+  version: 0bdeddeeb0f650497d603c4ad7b20cfe685682f6
+- package: github.com/Masterminds/glide
+  version: ~0.12.3
+  subpackages:
+  - action
+  - cache
+  - cfg
+  - dependency
+  - gb
+  - godep
+  - godep/strip
+  - gom
+  - gpm
+  - importer
+  - mirrors
+  - msg
+  - path
+  - repo
+  - tree
+  - util
+- package: github.com/Masterminds/semver
+  version: 59c29afe1a994eacb71c833025ca7acf874bb1da
+- package: github.com/Masterminds/vcs
+  version: 2b467644127097f69ed9c9829a0c5f757a804cee
+- package: gopkg.in/yaml.v2
+  version: 4c78c975fe7c825c6d1466c42be594d1d6f3aba6
